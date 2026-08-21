@@ -1,0 +1,71 @@
+/*-- scss:defaults --*/
+
+// Paleta extraída del póster del simposio (Poster_Simposio_Evolucion_Psicologia.pdf)
+// Muestreada directamente de la imagen; ajusta si tienes los valores exactos
+// del archivo SVG original.
+
+$cream:        #FAF6EB;  // fondo general
+$cream-tree:   #F3EDE0;  // tono del árbol decorativo, un poco más oscuro que el fondo
+$ink:          #262420;  // texto principal (casi negro, cálido)
+$orange:       #F08C00;  // acento (números de orden, nombres, "SIMPOSIO")
+$charcoal:     #333333;  // franja inferior oscura del póster
+
+$body-bg: $cream;
+$body-color: $ink;
+$link-color: $orange;
+
+$presentation-heading-color: $ink;
+$presentation-heading-font-weight: 700;
+
+// Tipografía: cambia por lo que tengas instalado/quieras usar.
+// El póster usa una sans-serif geométrica; alternativas FOSS razonables:
+// "Fira Sans", "Inter", "Public Sans".
+$presentation-heading-font: "Fira Sans", sans-serif;
+$presentation-font-size-root: 28px;
+
+/*-- scss:rules --*/
+
+.reveal .slide-number {
+  color: $orange;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  color: $ink;
+}
+
+// Estilo "badge" tipo los números naranjas del póster, útil para
+// numerar secciones o pasos dentro de una diapositiva.
+.badge-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  background-color: $orange;
+  color: white;
+  font-weight: 700;
+}
+
+// Diapositivas de transición / cierre de bloque, imitando la franja
+// oscura del pie del póster.
+.reveal .slides section.dark-slide {
+  background-color: $charcoal;
+  color: $cream;
+}
+.reveal .slides section.dark-slide h1,
+.reveal .slides section.dark-slide h2 {
+  color: $orange;
+}
+
+// Enlaces de referencia discretos al pie de una diapositiva
+// (para las citas: Turkheimer 2000, Polderman et al. 2015, etc.)
+.cita-pie {
+  position: absolute;
+  bottom: 0.4em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.5em;
+  color: mix($ink, $cream, 60%);
+}

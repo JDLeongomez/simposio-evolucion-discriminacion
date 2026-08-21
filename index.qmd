@@ -1,0 +1,198 @@
+---
+title: "Pensamiento evolutivo en la psicología"
+subtitle: "Simposio · Retos, implicaciones y aplicaciones de las miradas evolutivas de la mente y el comportamiento humano"
+author: "Juan David Leongómez"
+institute: "Universidad El Bosque"
+date: "2026-08-26"
+format:
+  revealjs:
+    theme: [default, theme/poster.scss]
+    slide-number: true
+    logo: img/simposio/logo_ubosque.svg   # reemplaza con el logo real (SVG)
+    footer: "Simposio · Pensamiento evolutivo en la psicología · UBosque 2026"
+    center: false
+    transition: fade
+    incremental: false
+bibliography: references.bib
+csl: https://www.zotero.org/styles/apa?source=1
+---
+
+<!-- ======================================================= -->
+<!-- 0. APERTURA DEL SIMPOSIO (2-3 min, fuera de tus 20 min)  -->
+<!-- ======================================================= -->
+
+## Bienvenida {.dark-slide}
+
+- Título y motivación general del simposio
+- Agradecimientos: EvoCo, LabPsiExp, Especialización en Psicología Clínica y Autoeficacia Personal
+- (Imagen: recorta el póster o usa los logos institucionales sueltos, `img/simposio/`)
+
+## Programa del día
+
+<!--
+Presenta rápido a los 6 ponentes que siguen (tú no te presentas aquí, ya vas
+a hablar). Puede ser una sola diapositiva con los 6 nombres/temas en formato
+lista o timeline, imitando el póster.
+-->
+
+- Diego Otálora-Morales — Psicología evolutiva e implicaciones clínicas
+- Andrés Felipe Reyes — Diferencias de sexo en el lenguaje y comunicación de parejas
+- Miguel Puentes-Escamilla — Estructuras sociales humanas
+- Valentina Cepeda — La manipulación evolutiva del sexo
+- Marcela Puentes — Atención visual, atractivo y dominancia facial
+- Oscar R. Sánchez — Presentación del libro *Evolución, comportamiento estratégico humano y desajuste*
+
+<!-- ======================================================= -->
+<!-- 1. TU CHARLA: "Evolución y discursos discriminatorios"  -->
+<!-- Tiempo total objetivo: ~20 min                          -->
+<!-- ======================================================= -->
+
+# Evolución y discursos discriminatorios {.dark-slide}
+
+Juan David Leongómez · EvoCo, Universidad El Bosque
+
+<!-- ------------------------------------------------------- -->
+<!-- 1.1 Motivación (2-3 min) -->
+<!-- ------------------------------------------------------- -->
+
+## Un mundo que retrocede
+
+<!--
+Contexto actual: giro a la derecha, redes sociales, manósfera, culto a la
+testosterona/masculinidad. Ideal: 1-2 imágenes fuertes (portadas de prensa,
+capturas, no memes gratuitos) más que texto.
+-->
+
+## La grieta
+
+<!--
+Tesis central:
+- La base evolutiva del comportamiento humano es innegable.
+- Eso ha abierto una grieta con la psicología y otras ciencias sociales:
+  se asume que lo evolutivo es sinónimo de discriminatorio/reduccionista.
+- Postura: la crítica está justificada (el campo sí ha caído en esto),
+  pero la buena ciencia evolutiva es también la herramienta para combatirlo.
+-->
+
+<!-- ------------------------------------------------------- -->
+<!-- 1.2 Puentes entre niveles de explicación + falacia      -->
+<!--     naturalista (5-6 min)                               -->
+<!-- ------------------------------------------------------- -->
+
+## ¿Por qué los hombres son, en promedio, más propensos a la violencia física?
+
+<!-- Diapositiva de planteamiento, sin responder aún. Imagen/ilustración simple. -->
+
+## Dos explicaciones, dos niveles
+
+::: {.columns}
+::: {.column width="50%"}
+**Explicación social (nivel próximo)**
+
+<!--
+Socialización, normas de masculinidad, refuerzo cultural de la
+dominancia, estructuras patriarcales.
+-->
+:::
+::: {.column width="50%"}
+**Explicación evolutiva (nivel último)**
+
+<!--
+Competencia por estatus/pareja en la historia evolutiva humana,
+consecuencias reproductivas de la disposición al riesgo.
+-->
+:::
+:::
+
+Ambas pueden ser ciertas **al mismo tiempo**: responden preguntas distintas.
+
+## Error 1 — Exclusión
+
+<!--
+Tratar las dos explicaciones como rivales en vez de complementarias.
+Esto es lo que ha alejado a la psicología evolutiva de otras ciencias
+sociales.
+-->
+
+## Error 2 — Falacia naturalista
+
+<!--
+Asumir que, aun siendo cierta la explicación evolutiva, eso la vuelve
+un "deber ser" inmodificable. Explicar el origen no es dictar el destino.
+La cultura puede modificar lo que la evolución hizo posible (la historia
+lo demuestra).
+-->
+
+## Nature vs. nurture: un falso dilema
+
+<!--
+Cierre del bloque con evidencia dura:
+- Heredabilidad moderada (nunca 0%, nunca 100%) en casi todo rasgo
+  conductual [@polderman2015]
+- Interacción genotipo-ambiente
+- [@turkheimer2000]
+
+Idea para diagrama: espectro/doble flecha genes <-> ambiente, con la
+cifra de heredabilidad agregada de Polderman et al. como dato ancla.
+-->
+
+<!-- ------------------------------------------------------- -->
+<!-- 1.3 Recorrido por los ámbitos de apropiación indebida    -->
+<!--     (6-8 min, rápido, casi solo evidencia + imágenes)    -->
+<!-- ------------------------------------------------------- -->
+
+## Racismo
+
+<!-- "Ciencia" de raza e IQ, resurgimiento de la eugenesia [@sear2021eugenics] -->
+
+## Sexismo y culto a la masculinidad
+
+<!-- Manósfera, incels, énfasis en testosterona [@archer2006; @conroybeam2024] -->
+
+## La "familia tradicional"
+
+<!-- Mito del hombre cazador-proveedor / mujer cuidadora [@sear2021family] -->
+
+## Sexo vs. género
+
+<!-- Constructos multidimensionales, no reducibles a lo binario -->
+
+<!-- ------------------------------------------------------- -->
+<!-- 1.4 Contrapeso: la buena ciencia evolutiva (3-4 min)     -->
+<!-- ------------------------------------------------------- -->
+
+## Aportes con evidencia sólida
+
+<!--
+Apego, percepción de rostros/voces/señales sociales, lenguaje,
+variabilidad transcultural. Reutiliza imágenes de la charla 2025
+(img/charla/).
+-->
+
+## La integración es la que desmonta el determinismo
+
+<!-- Antropología, sociología, historia + evolución, no evolución sola -->
+
+<!-- ------------------------------------------------------- -->
+<!-- 1.5 Cierre (1-2 min) -->
+<!-- ------------------------------------------------------- -->
+
+## El punto no es rechazar, ni tragar entero
+
+<!--
+Mensaje central: comprender la evolución no es justificar la
+desigualdad. Ojo crítico para (1) no rechazar aportes fundamentales
+y (2) no aceptar interpretaciones amañadas.
+Conexión hacia las siguientes 6 presentaciones.
+-->
+
+## ¡Gracias! {.dark-slide}
+
+**Juan David Leongómez** PhD, MSc
+EvoCo · Universidad El Bosque
+<jleongomez@unbosque.edu.co>
+
+## Referencias {.smaller}
+
+::: {#refs}
+:::

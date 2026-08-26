@@ -578,6 +578,38 @@ Historia
 
 ---
 
+## El feminismo darwiniano {auto-animate="true"}
+
+::: {.columns}
+
+::: {.column width="45%"}
+::: {.fragment .incremental}
+::: {.insight-card}
+Sarah Blaffer Hrdy y Amy Parish transformaron la comprensión de la evolución, la sexualidad y los roles de género
+
+* Hrdy desmontó el mito de la hembra sexualmente pasiva.
+
+* Parish mostró que las hembras forman alianzas y dominan sin depender del tamaño.
+
+::: {.credit}
+@hrdy1986empathy · @parish1994sex
+:::
+:::
+:::
+:::
+
+::: {.column width="55%"}
+![](img/charla/feminismo_darwiniano.png){.lightbox}
+:::
+
+:::
+
+::: {.credit}
+El País [(2025)](https://elpais.com/ciencia/2025-07-25/feminismo-darwiniano-asi-se-acabo-con-el-mito-de-la-pasividad-sexual-de-las-hembras.html)
+:::
+
+---
+
 ## ¿Y qué hacemos? {auto-animate="true"}
 
 ::: {.fragment}
@@ -639,7 +671,7 @@ Aceptar sin crítica cualquier interpretación evolutiva\
 ::: {.column width="60%"}
 [**Referencias**]{style="color: #4B5563;"}
 
-::: {#refs style="font-size: 70%; line-height: 1.3; columns: 1; color: #4B5563;"}
+::: {#refs style="font-size: 63%; line-height: 1.3; columns: 1; color: #4B5563;"}
 :::
 :::
 

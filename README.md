@@ -1,57 +1,34 @@
 # Simposio — Pensamiento evolutivo en la psicología
 
+<p align="center">
+  <img src="img/simposio/logo_simpopsio.png" alt="logo" height="200">
+</p>
+
 Presentación en Quarto revealjs. Incluye la apertura del simposio (breve) y
 la charla "Evolución y discursos discriminatorios".
 
+## Ver las presentaciones
+
+- **Apertura del simposio:** https://jdleongomez.github.io/simposio-evolucion-discriminacion/apertura.html
+- **Charla — Evolución y discursos discriminatorios:** https://jdleongomez.github.io/simposio-evolucion-discriminacion
+
 ## Estructura
 
-```
+```bash
 .
-├── index.qmd            # la presentación completa (apertura + charla)
+├── index.qmd # la charla principal
+├── apertura.qmd # apertura y programa del simposio
 ├── theme/
-│   └── poster.scss       # tema revealjs con la paleta del póster
+│ └── poster.scss # tema revealjs con la paleta del póster
 ├── img/
-│   ├── simposio/          # logos institucionales, recorte del póster
-│   └── charla/             # imágenes reutilizables de la charla 2025
-│                           # (https://github.com/JDLeongomez/evolucion-y-psicologia)
-├── references.bib        # citas (Turkheimer 2000, Polderman et al. 2015, etc.)
+│ ├── simposio/ # logos institucionales, recorte del póster
+│ └── charla/ # imágenes de la charla
+├── references.bib # citas (Turkheimer 2000, Polderman et al. 2015, etc.)
+├── title-slide.html # plantilla de la diapositiva de título
 └── README.md
 ```
 
-## Paleta de colores (extraída del póster)
+## Autor
 
-Muestreada directamente de la imagen del póster. Si tienes el SVG original,
-sería mejor sacar los valores exactos de ahí (probablemente estén definidos
-como variables de color en el archivo) y actualizar `theme/poster.scss`.
-
-| Uso                          | Hex       |
-|-------------------------------|-----------|
-| Fondo (cream)                  | `#FAF6EB` |
-| Árbol decorativo (cream oscuro)| `#F3EDE0` |
-| Texto principal (ink)          | `#262420` |
-| Acento naranja                 | `#F08C00` |
-| Franja inferior (charcoal)     | `#333333` |
-
-## Pendientes
-
-- [ ] Reemplazar `img/simposio/logo_ubosque.svg` (y agregar logos de EvoCo /
-      LabPsiExp / Especialización) con los archivos SVG reales.
-- [ ] Copiar a `img/charla/` las imágenes que quieras reciclar de la charla
-      2025.
-- [ ] Completar `references.bib`: Lynn & Vanhanen 2002, Lynn & Becker 2019,
-      Cell 2024, Al-Shawaf 2025, Vasquez-Amézquita et al. 2025.
-- [ ] Si quieres formato APA en las citas en pantalla, descarga un `.csl`
-      (p. ej. desde <https://www.zotero.org/styles>) y colócalo en la raíz
-      del proyecto como `apa.csl`, o borra esa línea del YAML si prefieres
-      el formato por defecto de Pandoc.
-- [ ] Ir llenando cada sección de `index.qmd` (los comentarios `<!-- -->`
-      indican qué va en cada diapositiva) con imágenes y el texto mínimo
-      que quieras dejar en pantalla.
-
-## Renderizar
-
-```bash
-quarto render index.qmd
-# o, para vista previa en vivo mientras editas:
-quarto preview index.qmd
-```
+Juan David Leongómez, PhD, MSc
+Universidad El Bosque · [ORCID](https://orcid.org/0000-0002-0092-6298)

@@ -55,7 +55,7 @@ Determinismo biológico
 ::: {.columns}
 
 ::: {.column width="42.5%"}
-![](img/charla/aumento_racismo.png)
+![](img/charla/aumento_racismo.png){.lightbox}
 
 ::: {.center-text}
 **Racismo**
@@ -63,7 +63,7 @@ Determinismo biológico
 :::
 
 ::: {.column width="57.5%"}
-![](img/charla/voto_mujer.png)
+![](img/charla/voto_mujer.png){.lightbox}
 
 ::: {.center-text}
 **Retroceso de derechos**
@@ -83,15 +83,15 @@ Fuentes: [news.un.org (2025)](https://news.un.org/es/story/2025/11/1540765) · [
 ::: {.columns}
 
 ::: {.column width="33.3%"}
-![](img/charla/evopsych_epstein1.png){.fragment .emphasize-image}
+![](img/charla/evopsych_epstein1.png){.fragment .emphasize-image .lightbox}
 :::
 
 ::: {.column width="33.3%"}
-![](img/charla/evopsych_epstein2.png){.fragment .emphasize-image}
+![](img/charla/evopsych_epstein2.png){.fragment .emphasize-image .lightbox}
 :::
 
 ::: {.column width="33.3%"}
-![](img/charla/evopsych_epstein3.png){.fragment .emphasize-image}
+![](img/charla/evopsych_epstein3.png){.fragment .emphasize-image .lightbox}
 :::
 
 :::
@@ -107,7 +107,7 @@ Fuentes: Wilson, New Lines magazine [(2026)](https://newlinesmag.com/argument/th
 ::::{.columns}
 
 :::{.column width="70%"}
-![](img/charla/BG.png)
+![](img/charla/BG.png){.lightbox}
 :::
 
 :::{.column width="30%"}
@@ -117,7 +117,7 @@ Fuentes: Wilson, New Lines magazine [(2026)](https://newlinesmag.com/argument/th
 ::::
 
 ::: {.credit}
-Conroy-Beam, [Boston Globe, 2024](https://www.bostonglobe.com/2024/05/16/opinion/evolutionary-psychology-incel-manosphere/)
+@conroybeam2024
 :::
 
 ---
@@ -127,7 +127,7 @@ Conroy-Beam, [Boston Globe, 2024](https://www.bostonglobe.com/2024/05/16/opinion
 ::::{.columns}
 
 :::{.column width="60%"}
-![](img/charla/bachaud_2025.png){fig-align="center"}
+![](img/charla/bachaud_2025.png){fig-align="center" .lightbox}
 :::
 
 :::{.column width="40%"}
@@ -216,10 +216,10 @@ Ambas pueden ser ciertas **al mismo tiempo**: responden preguntas distintas
 
 ---
 
-## Naturaleza vs. crianza: falso dilema
+## Naturaleza vs. crianza: falso dilema {auto-animate="true"}
 
 ::: {.diagram-wrap}
-<svg viewBox="0 0 500 140" width="100%" style="max-width:500px;">
+<svg viewBox="0 0 500 140" width="100%" style="max-width:900px;">
 <defs>
 <linearGradient id="natnur" x1="0%" y1="0%" x2="100%" y2="0%">
 <stop offset="0%" stop-color="#333333"/>
@@ -236,15 +236,25 @@ Ambas pueden ser ciertas **al mismo tiempo**: responden preguntas distintas
 </svg>
 :::
 
-::: {.fragment}
-::: {.insight-card}
-Ningún rasgo conductual es 100% genes ni 100% ambiente:
+::: {.fragment }
+::: {.insight-card .center-text}
+Ningún rasgo conductual es 100% genes ni 100% ambiente:\
 la heredabilidad promedio es del 49%
 :::
 :::
 
 ::: {.credit}
 @polderman2015 · @turkheimer2000
+:::
+
+---
+
+## Naturaleza vs. crianza: falso dilema {auto-animate="true"}
+
+![](img/charla/fallacy.jpeg){fig-align="center" width="55%" .lightbox}
+
+::: {.credit}
+@al-shawafEvolutionLearningFallacy2025
 :::
 
 ---
@@ -290,10 +300,9 @@ la heredabilidad promedio es del 49%
 :::
 
 ::: {.fragment}
-::: {.insight-card}
-Tratar las dos explicaciones como rivales en vez de complementarias.
-Esto  ha alejado a la psicología evolutiva de otras ciencias
-sociales.
+::: {.insight-card .center-text}
+Tratar las dos explicaciones como rivales en vez de complementarias.\
+Esto  ha alejado a la psicología evolutiva de otras ciencias sociales.
 :::
 :::
 
@@ -303,7 +312,7 @@ sociales.
 
 ::: {.columns}
 
-::: {.column width="45%"}
+::: {.column width="48%"}
 ::: {.fallacy-card .fragment}
 ::: {.fallacy-label}
 Versión 1
@@ -317,7 +326,7 @@ Estudiar un fenómeno y explicarlo [no es justificarlo]{.highlight}
 :::
 :::
 
-::: {.column width="55%"}
+::: {.column width="52%"}
 ::: {.fallacy-card .fragment}
 ::: {.fallacy-label}
 Versión 2
@@ -338,6 +347,8 @@ Que algo tenga una explicación [no lo hace inevitable ni deseable]{.highlight}
 <span style="font-size:5rem; font-weight:700; color:#F08C00;">Evolución ≠ Destino</span>
 :::
 
+# Discursos discriminatorios {background-image="img/charla/fondo.jpg" background-opacity="0.3"}
+
 ---
 
 ## Racismo {auto-animate="true"}
@@ -347,10 +358,26 @@ Que algo tenga una explicación [no lo hace inevitable ni deseable]{.highlight}
 "*Intelligence*" research & Race "*science*"
 
 **Pseudociencia** y culto al IQ
+
+::: {.fragment}
+::: {.insight-card}
+**Richard Lynn** (1930 - 2023)
+
+* Psicólogo\
+* Autoproclamado “racista científico”\
+* Citado al menos 174 veces
+
+::: {.credit}
+Retraction watch [(2025)](https://retractionwatch.com/2025/11/25/meet-the-researcher-aiming-to-halt-use-of-fundamentally-flawed-database-linking-iq-and-nationality/)
+:::
+
+:::
+:::
+
 :::
 
 ::: {.column width="50%"}
-![](img/charla/IQ_tab.png)
+![](img/charla/IQ_tab.png){.lightbox}
 :::
 :::
 
@@ -363,33 +390,21 @@ Lynn & Vanhanen (2002) · Lynn & Becker (2019)
 ## Racismo {auto-animate="true" visibility="uncounted"}
 
 ::: {.columns}
-::: {.column width="50%"}
+::: {.column width="30%"}
 Rebeca Sear
 
 *Presidenta, [EHBEA](https://www.cambridge.org/core/membership/ehbea)*
+
+![](img/charla/sear.png)
 :::
 
-::: {.column width="50%"}
-![](img/charla/sear.png)
+::: {.column width="70%"}
+![](img/charla/sear_eugenics.png){.lightbox}
 :::
 :::
 
 ::: {.credit}
-El resurgimiento de la eugenesia: Sear [(2021)](https://www.tandfonline.com/doi/10.1080/00324728.2021.2009013)
-:::
-
----
-
-## Racismo {auto-animate="true" visibility="uncounted"}
-
-::: {.columns}
-::: {.column width="50%"}
-Algún racista de Twitter
-:::
-
-::: {.column width="50%"}
-![](img/charla/sp.png)
-:::
+El resurgimiento de la eugenesia: @sear2021eugenics
 :::
 
 ---
@@ -398,11 +413,33 @@ Algún racista de Twitter
 
 ::: {.columns}
 ::: {.column width="30%"}
-Diversidad humana
+Algún racista de Twitter:
 :::
 
-::: {.column width="70%"}
-![](img/charla/hum_gen.png)
+::: {.column width="70%" .center-text}
+![](img/charla/sp.png){.lightbox}
+
+"*Y dicen que somos la misma especie*"
+:::
+:::
+
+---
+
+## Racismo {auto-animate="true" visibility="uncounted"}
+
+::: {.columns}
+::: {.column width="60%"}
+![](img/charla/hum_gen.png){.lightbox}
+:::
+
+::: {.column width="40%"}
+Diversidad humana
+
+::: {.insight-card}
+* La diversidad genética humana es, ante todo, diversidad africana.\
+* Todos los no africanos descienden de una sola rama (se separó hace menos de 100.000 años).
+:::
+
 :::
 :::
 
@@ -411,19 +448,32 @@ Diversidad humana
 ## Sexismo y culto a la masculinidad {auto-animate="true"}
 
 ::: {.columns}
-::: {.column width="30%"}
-Énfasis en testosterona y masculinidad
+::: {.column width="50%"}
 
-**Simplificación** en la interpretación
+::: {.incremental}
+* Énfasis en testosterona y masculinidad
+* **Simplificación** en la interpretación
 :::
 
-::: {.column width="70%"}
-![](img/charla/gigachad.jpg)
-:::
-:::
+::: {.fragment}
+::: {.insight-card}
+* Mejor sistema inmune
+* Estátus social
+* 🚩 Mayor agresividad
+* 🚩 Más promiscuidad
+* 🚩 Menor inversión parental
 
 ::: {.credit}
-Archer [(2006)](https://doi.org/10.1016/j.neubiorev.2004.12.007)
+@archer2006; @dreherTestosteroneCausesBoth2016
+:::
+:::
+:::
+
+:::
+
+::: {.column width="50%"}
+![](img/charla/gigachad.jpg)
+:::
 :::
 
 ---
@@ -443,7 +493,7 @@ Archer [(2006)](https://doi.org/10.1016/j.neubiorev.2004.12.007)
 :::
 
 ::: {.credit}
-Conroy-Beam, Boston Globe [(2024)](https://www.bostonglobe.com/2024/05/16/opinion/evolutionary-psychology-incel-manosphere/)
+@conroybeam2024
 :::
 
 ---
@@ -451,87 +501,146 @@ Conroy-Beam, Boston Globe [(2024)](https://www.bostonglobe.com/2024/05/16/opinio
 ## La "familia tradicional" {auto-animate="true"}
 
 ::: {.columns}
-::: {.column width="50%"}
-Rebeca Sear
-
-*Presidenta, [EHBEA](https://www.cambridge.org/core/membership/ehbea)*
-:::
-
-::: {.column width="50%"}
-![](img/charla/sear.png)
-:::
-:::
-
----
-
-## La "familia tradicional" {auto-animate="true" visibility="uncounted"}
-
-::: {.columns}
-::: {.column width="50%"}
+::: {.column width="30%"}
 El mito del hombre proveedor
 :::
 
-::: {.column width="50%"}
-![](img/charla/trad_fam.png)
+::: {.column width="70%"}
+![](img/charla/trad_fam.png){.lightbox}
 :::
 :::
 
 ::: {.credit}
-El modelo de hombre proveedor no es la familia humana "tradicional": Sear [(2021)](https://royalsocietypublishing.org/doi/10.1098/rstb.2020.0020)
+El modelo de hombre proveedor no es la familia humana "tradicional": @sear2021family
 :::
 
 ---
 
-## Sexo vs. género
+## Sexo vs. género {auto-animate="true"}
 
 ::: {.columns}
-::: {.column width="50%"}
-Constructos multidimensionales, no reducibles a lo binario
+::: {.column width="30%"}
+Constructos multidimensionales, no binarios
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 ![](img/charla/sex.jpeg)
 :::
 :::
 
 ::: {.credit}
-Sexo y género: constructos multidimensionales que integran factores biológicos y sociales: Cell [(2024)](https://www.cell.com/cell/issue?pii=S0092-8674(23)X0007-5)
+Sexo y género: constructos multidimensionales que integran factores biológicos y sociales: @velocciHistorySexResearch2024\
+Número especial en Cell ["*Focus on Sex and Gender*"](https://www.cell.com/cell/issue?pii=S0092-8674(23)X0007-5)
 :::
 
 ---
 
-## Aportes con evidencia sólida {auto-animate="true"}
+## Sexo vs. género {auto-animate="true"}
 
-<!--
-Apego, percepción de rostros/voces/señales sociales, lenguaje,
-variabilidad transcultural. Reutiliza imágenes de la charla 2025
-(img/charla/).
--->
-
-## La integración es la que desmonta el determinismo {auto-animate="true"}
-
-<!-- Antropología, sociología, historia + evolución, no evolución sola -->
-
-<!-- ------------------------------------------------------- -->
-<!-- 1.5 Cierre (1-2 min) -->
-<!-- ------------------------------------------------------- -->
-
-## El punto no es rechazar, ni tragar entero {auto-animate="true"}
-
-<!--
-Mensaje central: comprender la evolución no es justificar la
-desigualdad. Ojo crítico para (1) no rechazar aportes fundamentales
-y (2) no aceptar interpretaciones amañadas.
-Conexión hacia las siguientes 6 presentaciones.
--->
-
-## ¡Gracias! {background-image="img/charla/fondo.png" background-size="cover" background-opacity="0.4"}
-
-**Juan David Leongómez** PhD, MSc
-EvoCo · Universidad El Bosque
-<jleongomez@unbosque.edu.co>
-
-## Referencias {.smaller}
-
-::: {#refs}
+::: {.fragment width="30%"}
+[Síndrome de insensibilidad a los andrógenos]{.highlight}
 :::
+
+![](img/charla/androgen_insensitivity_syndrome.jpg){fig-align="center"}
+
+::: {.credit}
+@hughesAndrogenResistance2006\
+Imágen [Wikipedia](https://es.wikipedia.org/wiki/S%C3%ADndrome_de_insensibilidad_a_los_andr%C3%B3genos)
+:::
+
+---
+
+## La integración desmonta el determinismo {auto-animate="true"}
+
+Ninguna disciplina sola explica el comportamiento humano
+
+::: {.fragment}
+::: {.insight-card .center-text}
+<span style="font-size:3rem; font-weight:700; color:#F08C00;">Psicología</span>
+
+::: {.discipline-row .fragment}
+::: {.discipline-card}
+Biología y Evolución
+:::
+::: {.discipline-card}
+Antropología
+:::
+::: {.discipline-card}
+Sociología
+:::
+::: {.discipline-card}
+Historia
+:::
+:::
+
+:::
+:::
+
+---
+
+## ¿Y qué hacemos? {auto-animate="true"}
+
+::: {.fragment}
+¿Cómo tomamos los aportes evolutivos?
+:::
+
+::: {.columns}
+
+::: {.column width="50%"}
+::: {.fallacy-card .fragment}
+::: {.fallacy-label}
+Error 1
+:::
+::: {.fallacy-equation}
+Rechazar en bloque
+:::
+::: {.fallacy-desc}
+Ignorar aportes fundamentales de las miradas evolutivas\
+Generalizar errores e interpretaciones sesgadas
+:::
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fallacy-card .fragment}
+::: {.fallacy-label}
+Error 2
+:::
+::: {.fallacy-equation}
+Tragar entero
+:::
+::: {.fallacy-desc}
+Aceptar sin crítica cualquier interpretación evolutiva\
+(especialmente de redes)
+:::
+:::
+:::
+
+:::
+
+::: {.fragment}
+::: {.insight-card .center-text}
+<span style="font-size:3rem; font-weight:700; color:#F08C00;">Mirada crítica</span>
+:::
+:::
+
+---
+
+## ¡Gracias! {background-image="img/charla/fondo.jpg" background-size="cover" background-opacity="0.1"}
+
+::::: columns
+
+::: {.column width="40%"}
+[**Juan David Leongómez**]{style="font-size: 140%;"} [PhD, MSc]{style="font-size: 70%;"}<br>
+[jleongomez\@unbosque.edu.co](mailto:jleongomez@unbosque.edu.co){style="font-size: 90%;"}<br><br>
+[![](img/charla/jdl_qr.png){width="80%"}](https://jdleongomez.info/es/)
+:::
+
+::: {.column width="60%"}
+[**Referencias**]{style="color: #4B5563;"}
+
+::: {#refs style="font-size: 70%; line-height: 1.3; columns: 1; color: #4B5563;"}
+:::
+:::
+
+:::::

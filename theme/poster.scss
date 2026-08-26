@@ -37,68 +37,6 @@ $presentation-font-size-root: 28px;
   color: $ink;
 }
 
-// Estilo "badge" tipo los números naranjas del póster, útil para
-// numerar secciones o pasos dentro de una diapositiva.
-.badge-numero {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.4em;
-  height: 1.4em;
-  border-radius: 50%;
-  background-color: $orange;
-  color: white;
-  font-weight: 700;
-}
-
-// Diapositivas de transición / cierre de bloque, imitando la franja
-// oscura del pie del póster.
-.reveal .slides section.dark-slide {
-  background-color: $charcoal;
-  color: $cream;
-}
-
-.reveal .slides section.dark-slide h1,
-.reveal .slides section.dark-slide h2 {
-  color: $orange;
-}
-
-// Enlaces de referencia discretos al pie de una diapositiva
-// (para las citas: Turkheimer 2000, Polderman et al. 2015, etc.)
-.cita-pie {
-  position: absolute;
-  bottom: 0.4em;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 0.5em;
-  color: mix($ink, $cream, 60%);
-}
-
-// Portadas construidas a mano (simposio y charla), en vez de la portada
-// automática de Quarto/pandoc. Úsalas en un heading vacío: "## {.cover-slide}"
-.reveal .slides section.cover-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.reveal .slides section.cover-slide h3 {
-  font-size: 1.6em;
-  margin-top: 0.2em;
-}
-
-// Etiqueta tipo "SIMPOSIO" del póster: naranja, mayúsculas, letterspacing.
-.eyebrow {
-  color: $orange;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.6em;
-}
-
 // Subtítulo centrado
 .subtitle {
   text-align: center;
@@ -131,6 +69,7 @@ $presentation-font-size-root: 28px;
   transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+// Estado activo del fragmento anterior: resalta la imagen actual
 .reveal .fragment.emphasize-image.current-fragment {
   opacity: 1;
   transform: scale(1.1);
@@ -182,11 +121,48 @@ $presentation-font-size-root: 28px;
   font-size: 1.4rem;
 }
 
+// Pandoc junta las líneas de <span> consecutivas en un solo <p>; hacemos que
+// ese <p> no genere caja propia para que los <span> queden como hijos
+// directos del flex container y respeten el gap vertical de .level-tags.
+.level-tags > p {
+  display: contents;
+}
+
 // Cada etiqueta individual dentro de .level-tags: píldora semitransparente
 .level-tags span {
   padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  color: #e6e2d9;
+  background-color: #4c4a44;
+  opacity: 0;
+}
+
+// Fade + leve desplazamiento hacia arriba para cada etiqueta de .level-tags
+@keyframes level-tag-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// .level-tags vive dentro de una .level-card que es un .fragment: la
+// animación debe dispararse cuando reveal.js marca ese fragmento como
+// "visible" (al hacer clic para mostrar la tarjeta), no cuando la
+// diapositiva entera se activa; si no, las etiquetas ya estarían en
+// opacity:1 desde antes de que aparezca la tarjeta.
+.level-card.fragment.visible .level-tags span {
+  animation: level-tag-fade-in 1s ease forwards;
+}
+
+// Desfase progresivo (0.8s) por etiqueta, hasta 6, para que aparezcan una tras otra
+@for $i from 1 through 6 {
+  .level-card.fragment.visible .level-tags span:nth-child(#{$i}) {
+    animation-delay: #{($i - 1) * 0.8}s;
+  }
 }
 
 // Texto conector entre dos .level-card (p.ej. una flecha o "vs.")
@@ -208,6 +184,7 @@ $presentation-font-size-root: 28px;
   margin: 1rem 0;
 }
 
+// Recuadro destacado para una idea clave, con franja naranja a la izquierda
 .insight-card {
   background-color: rgba(240, 140, 0, 0.08);
   border-left: 6px solid #F08C00;
@@ -218,6 +195,7 @@ $presentation-font-size-root: 28px;
   line-height: 1.4;
 }
 
+// Tarjeta para presentar una falacia lógica (etiqueta + ecuación + descripción)
 .fallacy-card {
   border-radius: 12px;
   padding: 1.75rem 1.5rem;
@@ -227,6 +205,7 @@ $presentation-font-size-root: 28px;
   border: 2px solid rgba(240, 140, 0, 0.3);
 }
 
+// Etiqueta superior en mayúsculas dentro de .fallacy-card (p.ej. "FALACIA NATURALISTA")
 .fallacy-label {
   font-size: 0.95rem;
   text-transform: uppercase;
@@ -235,6 +214,7 @@ $presentation-font-size-root: 28px;
   margin-bottom: 0.5rem;
 }
 
+// Fórmula/ecuación destacada en naranja dentro de .fallacy-card
 .fallacy-equation {
   font-size: 1.8rem;
   font-weight: 700;
@@ -242,7 +222,28 @@ $presentation-font-size-root: 28px;
   margin-bottom: 0.75rem;
 }
 
+// Texto explicativo dentro de .fallacy-card
 .fallacy-desc {
   font-size: 1.1rem;
   line-height: 1.4;
+}
+
+// Fila horizontal de tarjetas de disciplinas (p.ej. genética, psicología, sociología)
+.discipline-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+// Cada tarjeta individual dentro de .discipline-row
+.discipline-card {
+  flex: 1;
+  background-color: rgba(51, 51, 51, 0.06);
+  border-top: 4px solid #333333;
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
 }

@@ -4,11 +4,11 @@
 // Muestreada directamente de la imagen; ajusta si tienes los valores exactos
 // del archivo SVG original.
 
-$cream:        #FAF6EB;  // fondo general
-$cream-tree:   #F3EDE0;  // tono del árbol decorativo, un poco más oscuro que el fondo
-$ink:          #262420;  // texto principal (casi negro, cálido)
-$orange:       #F08C00;  // acento (números de orden, nombres, "SIMPOSIO")
-$charcoal:     #333333;  // franja inferior oscura del póster
+$cream: #FAF6EB; // fondo general
+$cream-tree: #F3EDE0; // tono del árbol decorativo, un poco más oscuro que el fondo
+$ink: #262420; // texto principal (casi negro, cálido)
+$orange: #F08C00; // acento (números de orden, nombres, "SIMPOSIO")
+$charcoal: #333333; // franja inferior oscura del póster
 
 $body-bg: $cream;
 $body-color: $ink;
@@ -25,11 +25,15 @@ $presentation-font-size-root: 28px;
 
 /*-- scss:rules --*/
 
+// Número de diapositiva en el acento naranja del póster
 .reveal .slide-number {
   color: $orange;
 }
 
-.reveal h1, .reveal h2, .reveal h3 {
+// Encabezados en el color de texto principal
+.reveal h1,
+.reveal h2,
+.reveal h3 {
   color: $ink;
 }
 
@@ -53,6 +57,7 @@ $presentation-font-size-root: 28px;
   background-color: $charcoal;
   color: $cream;
 }
+
 .reveal .slides section.dark-slide h1,
 .reveal .slides section.dark-slide h2 {
   color: $orange;
@@ -68,4 +73,176 @@ $presentation-font-size-root: 28px;
   text-align: center;
   font-size: 0.5em;
   color: mix($ink, $cream, 60%);
+}
+
+// Portadas construidas a mano (simposio y charla), en vez de la portada
+// automática de Quarto/pandoc. Úsalas en un heading vacío: "## {.cover-slide}"
+.reveal .slides section.cover-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.reveal .slides section.cover-slide h3 {
+  font-size: 1.6em;
+  margin-top: 0.2em;
+}
+
+// Etiqueta tipo "SIMPOSIO" del póster: naranja, mayúsculas, letterspacing.
+.eyebrow {
+  color: $orange;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.6em;
+}
+
+// Subtítulo centrado
+.subtitle {
+  text-align: center;
+}
+
+// Resaltar texto
+.highlight {
+  color: $orange; // o color: #F08C00; si no tienes la variable definida
+  font-weight: 600;
+}
+
+// Centrar texto
+.center-text {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+// Crédito imágenes
+.credit {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-align: right;
+  margin-top: 0.4rem;
+}
+
+// Énfasis de imagen
+.reveal .fragment.emphasize-image {
+  opacity: 0.8;
+  transform: scale(1);
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.reveal .fragment.emphasize-image.current-fragment {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px $orange;
+  border-radius: 2px;
+}
+
+// Tarjeta base para comparar niveles (p.ej. "explicación social" vs.
+// "explicación evolutiva"): fondo redondeado, contenido centrado.
+.level-card {
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  height: 100%;
+}
+
+// Variante "social": franja superior gris/carbón
+.level-card.social {
+  background-color: rgba(51, 51, 51, 0.06);
+  border-top: 4px solid #333333;
+}
+
+// Variante "evolutiva": franja superior naranja (acento del póster)
+.level-card.evo {
+  background-color: rgba(240, 140, 0, 0.08);
+  border-top: 4px solid #F08C00;
+}
+
+// Título grande dentro de una .level-card
+.level-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+// Subtítulo en cursiva, atenuado, debajo del .level-title
+.level-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.75;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+// Lista vertical de etiquetas/palabras clave dentro de una .level-card
+.level-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 1.4rem;
+}
+
+// Cada etiqueta individual dentro de .level-tags: píldora semitransparente
+.level-tags span {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+// Texto conector entre dos .level-card (p.ej. una flecha o "vs.")
+.level-connector {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-top: 2rem;
+}
+
+// Énfasis en naranja dentro de .level-connector
+.level-connector strong {
+  color: #F08C00;
+}
+
+// Contenedor para centrar un diagrama o imagen explicativa
+.diagram-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.insight-card {
+  background-color: rgba(240, 140, 0, 0.08);
+  border-left: 6px solid #F08C00;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.fallacy-card {
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  height: 100%;
+  background-color: rgba(240, 140, 0, 0.08);
+  border: 2px solid rgba(240, 140, 0, 0.3);
+}
+
+.fallacy-label {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.65;
+  margin-bottom: 0.5rem;
+}
+
+.fallacy-equation {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #F08C00;
+  margin-bottom: 0.75rem;
+}
+
+.fallacy-desc {
+  font-size: 1.1rem;
+  line-height: 1.4;
 }

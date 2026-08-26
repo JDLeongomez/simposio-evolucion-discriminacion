@@ -1,0 +1,142 @@
+---
+title: "Pensamiento evolutivo en la psicología"
+subtitle: "Retos, implicaciones y aplicaciones de las miradas evolutivas de la mente y el comportamiento humano"
+
+author:
+  - name: "[Juan David Leongómez]{style='font-size: 50%;'}"
+  - name: "[Diego Otálora-Morales]{style='font-size: 50%;'}"
+  - name: "[Andrés Felipe Reyes]{style='font-size: 50%;'}"
+  - name: "[Miguel Puentes-Escamilla]{style='font-size: 50%;'}"
+  - name: "[Valentina Cepeda]{style='font-size: 50%;'}"
+  - name: "[Marcela Puentes]{style='font-size: 50%;'}"
+  - name: "[Oscar R. Sánchez]{style='font-size: 50%;'}"
+
+title-slide-attributes:
+  data-background-image: img/simposio/fondo_simposio.jpg
+  data-background-size: cover
+  data-background-opacity: "0.9"
+
+format:
+  revealjs:
+    logo: img/simposio/Logo_UEB.svg
+    theme: [default, theme/poster.scss]
+    center: true
+    slide-number: true
+    transition: fade
+    background-transition: fade
+    self-contained: false
+toc: false
+---
+
+```{r}
+#| echo: false
+#| message: false
+
+# Paquetes
+library(tidyverse)
+library(gt)
+
+# Datos del programa. Ajusta las rutas de Foto cuando tengas los recortes
+# de cada presentador (puedo ayudarte a recortarlos del póster si quieres).
+df <- tribble(
+  ~Nombre,                    ~Título,                                                                               ~Foto,
+  "Juan David Leongómez",     "Evolución y discursos discriminatorios",                                              "img/simposio/speakers/juan.jpg",
+  "Diego Otálora-Morales",    "Psicología evolutiva: implicaciones en la psicología clínica",                        "img/simposio/speakers/diego.jpg",
+  "Andrés Felipe Reyes",      "Diferencias de sexo en la percepción del lenguaje y comunicación de parejas",         "img/simposio/speakers/andres.jpg",
+  "Miguel Puentes-Escamilla", "Una mirada evolutiva a las estructuras sociales humanas",                             "img/simposio/speakers/miguel.jpg",
+  "Valentina Cepeda",         "La manipulación evolutiva del sexo",                                                  "img/simposio/speakers/valentina.jpg",
+  "Marcela Puentes",          "¿Por qué no podemos dejar de mirar? Atención visual, atractivo y dominancia facial",  "img/simposio/speakers/marcela.jpg",
+  "Oscar R. Sánchez",         "Presentación del libro \"Evolución, comportamiento estratégico humano y desajuste\"", "img/simposio/speakers/oscar.jpg"
+)
+
+# Tabla gt del programa
+tab_simposio <-
+  df |>
+  select(Foto, Nombre, Título) |>
+  gt() |>
+  # Convertir la columna 'Foto' en imagen local
+  # (si falta el archivo, deja la celda vacía y avisa, en vez de tumbar el
+  # render; así puedes ir completando fotos de a poco sin que se rompa todo)
+  text_transform(
+    locations = cells_body(columns = Foto),
+    fn = function(x) {
+      lapply(x, function(path) {
+        if (!file.exists(path)) {
+          warning(sprintf("No se encontró la imagen: %s", path))
+          return("")
+        }
+        local_image(filename = path, height = 50)
+      })
+    }
+  ) |>
+  # Sin encabezados
+  cols_label(
+    Foto = "", Nombre = "", Título = ""
+  ) |>
+  tab_style(
+    style = list(
+      cell_text(color = "transparent"),
+      cell_fill(color = "transparent")
+    ),
+    locations = cells_column_labels()
+  ) |>
+  tab_options(
+    column_labels.padding = px(0),
+    column_labels.font.size = px(1),
+    table.font.names = c("Fira Sans", "Inter", "Helvetica", "Arial", "sans-serif"),
+    data_row.padding = px(1),
+    table.width = pct(100),
+    table.layout = "fixed"
+  ) |>
+  # Anchos y alineación
+  cols_width(
+    Foto   ~ pct(7),
+    Nombre ~ pct(26),
+    Título ~ pct(67)
+  ) |>
+  cols_align(
+    columns = c(Nombre, Título),
+    align = "left"
+  ) |>
+  # Estética compacta
+  opt_row_striping() |>
+  tab_style(
+    style = cell_text(size = px(20)),
+    locations = cells_body()
+  ) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(columns = Título)
+  ) |>
+  # Resalta la fila de Oscar (cierre del simposio con la presentación del
+  # libro), igual que la franja oscura del póster para el ítem 7.
+  tab_style(
+    style = list(
+      cell_fill(color = "#333333"),
+      cell_text(color = "white")
+    ),
+    locations = cells_body(rows = Nombre == "Oscar R. Sánchez")
+  )
+
+tab_simposio
+```
+
+[](index.html)
+
+```{=html}
+<script>
+document.addEventListener('keydown', function (e) {
+  if (
+    window.Reveal &&
+    Reveal.isLastSlide && Reveal.isLastSlide() &&
+    (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ')
+  ) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    window.location.href = 'index.html';
+  }
+}, true);
+</script>
+```
+
+

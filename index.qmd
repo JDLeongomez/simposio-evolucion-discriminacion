@@ -1,24 +1,24 @@
 ---
-title: "Pensamiento evolutivo en la psicología"
-subtitle: "Retos, implicaciones y aplicaciones de las miradas evolutivas de la mente y el comportamiento humano"
+title: "Evolución y discursos discriminatorios"
+subtitle: "La ciencia evolutiva bien hecha es la mejor herramienta contra su propio mal uso."
 
 author:
-  - name: "[Juan David Leongómez]{style='font-size: 50%;'}"
-  - name: "[Diego Otálora-Morales]{style='font-size: 50%;'}"
-  - name: "[Andrés Felipe Reyes]{style='font-size: 50%;'}"
-  - name: "[Miguel Puentes-Escamilla]{style='font-size: 50%;'}"
-  - name: "[Valentina Cepeda]{style='font-size: 50%;'}"
-  - name: "[Marcela Puentes]{style='font-size: 50%;'}"
-  - name: "[Oscar R. Sánchez]{style='font-size: 50%;'}"
+  - name: "Juan David Leongómez"
+    orcid: 0000-0002-0092-6298
+    affiliations:
+      - name: "EvoCo, Universidad El Bosque"
 
 title-slide-attributes:
-  data-background-image: img/simposio/fondo_simposio.jpg
+  data-background-image: img/charla/fondo.jpg
   data-background-size: cover
-  data-background-opacity: "0.9"
+  data-background-opacity: "0.2"
+  data-auto-animate: "true"
 
 format:
   revealjs:
-    logo: img/simposio/Logo_UEB.svg   # reemplaza con el logo real (SVG)
+    template-partials:
+      - title-slide.html
+    logo: img/charla/logos.png
     footer: "Juan David Leongómez <span style='font-size: 70%;'>PhD, MSc</span>"
     theme: [default, theme/poster.scss]
     center: true
@@ -26,265 +26,481 @@ format:
     transition: fade
     background-transition: fade
     self-contained: false
+    auto-animate: true
 toc: false
 bibliography: references.bib
 csl: https://www.zotero.org/styles/apa?source=1
 ---
 
-<!-- ======================================================= -->
-<!-- 0. APERTURA DEL SIMPOSIO (2-3 min, fuera de tus 20 min)  -->
-<!-- La portada de arriba (title-slide) SÍ se genera automática, -->
-<!-- pero ahora con los 7 presentadores como autores, no solo tú. -->
-<!-- Fondo: el póster a baja opacidad, como marca de agua. -->
-<!-- ======================================================= -->
-
-```{r}
-#| echo: false
-#| message: false
-
-# Paquetes
-library(tidyverse)
-library(gt)
-
-# Datos del programa. Ajusta las rutas de Foto cuando tengas los recortes
-# de cada presentador (puedo ayudarte a recortarlos del póster si quieres).
-df <- tribble(
-  ~Nombre,                    ~Título,                                                                               ~Foto,
-  "Juan David Leongómez",     "Evolución y discursos discriminatorios",                                              "img/simposio/speakers/juan.jpg",
-  "Diego Otálora-Morales",    "Psicología evolutiva: implicaciones en la psicología clínica",                        "img/simposio/speakers/diego.jpg",
-  "Andrés Felipe Reyes",      "Diferencias de sexo en la percepción del lenguaje y comunicación de parejas",         "img/simposio/speakers/andres.jpg",
-  "Miguel Puentes-Escamilla", "Una mirada evolutiva a las estructuras sociales humanas",                             "img/simposio/speakers/miguel.jpg",
-  "Valentina Cepeda",         "La manipulación evolutiva del sexo",                                                  "img/simposio/speakers/valentina.jpg",
-  "Marcela Puentes",          "¿Por qué no podemos dejar de mirar? Atención visual, atractivo y dominancia facial",  "img/simposio/speakers/marcela.jpg",
-  "Oscar R. Sánchez",         "Presentación del libro \"Evolución, comportamiento estratégico humano y desajuste\"", "img/simposio/speakers/oscar.jpg"
-)
-
-# Tabla gt del programa
-tab_simposio <-
-  df |>
-  select(Foto, Nombre, Título) |>
-  gt() |>
-  # Convertir la columna 'Foto' en imagen local
-  # (si falta el archivo, deja la celda vacía y avisa, en vez de tumbar el
-  # render; así puedes ir completando fotos de a poco sin que se rompa todo)
-  text_transform(
-    locations = cells_body(columns = Foto),
-    fn = function(x) {
-      lapply(x, function(path) {
-        if (!file.exists(path)) {
-          warning(sprintf("No se encontró la imagen: %s", path))
-          return("")
-        }
-        local_image(filename = path, height = 50)
-      })
-    }
-  ) |>
-  # Sin encabezados
-  tab_options(
-    column_labels.hidden = TRUE,
-    table.font.names = c("Fira Sans", "Inter", "Helvetica", "Arial", "sans-serif"),
-    data_row.padding = px(6),
-    table.width = pct(85)
-  ) |>
-  # Anchos y alineación
-  cols_width(
-    Foto   ~ px(50),
-    Nombre ~ px(160),
-    Título ~ px(650)
-  ) |>
-  cols_align(
-    columns = c(Nombre, Título),
-    align = "left"
-  ) |>
-  # Estética compacta
-  opt_row_striping() |>
-  tab_style(
-    style = cell_text(size = px(16)),
-    locations = cells_body()
-  ) |>
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_body(columns = Título)
-  ) |>
-  # Resalta la fila de Oscar (cierre del simposio con la presentación del
-  # libro), igual que la franja oscura del póster para el ítem 7.
-  tab_style(
-    style = list(
-      cell_fill(color = "#333333"),
-      cell_text(color = "white")
-    ),
-    locations = cells_body(rows = Nombre == "Oscar R. Sánchez")
-  )
-
-tab_simposio
-```
+## Evolución y discursos discriminatorios {data-id="charla-title" auto-animate="true" autoslide="1000"}
 
 ---
 
-<!-- ======================================================= -->
-<!-- 1. TU CHARLA: "Evolución y discursos discriminatorios"  -->
-<!-- Tiempo total objetivo: ~20 min                          -->
-<!-- Portada de tu charla, siguiendo el mismo espíritu que la -->
-<!-- de 2025: frase-gancho, nombre, afiliación, logos, evento -->
-<!-- y fecha. El auto-animate hace que el título "vuele" hacia -->
-<!-- la siguiente diapositiva de contenido.                   -->
-<!-- ======================================================= -->
+## Evolución y discursos discriminatorios {data-id="charla-title" auto-animate="true"}
 
-## Evolución y discursos discriminatorios {background-image="img/charla/fondo.png" background-size="cover" background-opacity="0.4" auto-animate="true"}
-
-:::{.columns}
-::: {.column width="60%"}
-<div style="text-align:center; margin-top:0.5rem;">
-  <p style="font-size:1.15rem; margin-top:0.2rem; margin-bottom:0.9rem;">
-    <em>Explicar un fenómeno no es justificarlo: la ciencia evolutiva bien hecha es la mejor herramienta contra su propio mal uso.</em>
-  </p>
-
-  <p style="margin:0; font-size:1.05rem;">
-    <strong>Juan David Leongómez</strong>
-  </p>
-
-  <p style="margin:0.2rem 0 0.8rem 0; font-size:1.05rem;">
-    EvoCo, Universidad El Bosque
-  </p>
-
-  <img src="img/simposio/logos.svg" width="30%" style="display:block; margin:0 auto 0.6rem auto;">
-
-  <p style="font-size:0.95rem; opacity:0.9; margin-top:0.2rem;">
-    Simposio <em>Pensamiento evolutivo en la psicología</em><br>
-    Universidad El Bosque · 26 de agosto de 2026
-  </p>
-</div>
-:::
-
-::: {.column width="40%"}
-<div style="text-align:center;">
-  <!-- Si vas a publicar el repo/slides, agrega aquí tu QR, como en 2025 -->
-  <!-- ![](img/charla/qr.svg){width="80%" fig-align="center"} -->
-</div>
-:::
-:::
+Las perspectivas evolutivas son [reduccionistas]{.highlight}.
 
 ---
 
-## Evolución y discursos discriminatorios {auto-animate="true"}
+## Evolución y discursos discriminatorios {data-id="charla-title" auto-animate="true"}
 
-<!--
-Esta es ya la primera diapositiva de contenido real (el auto-animate conecta
-visualmente con la portada anterior). A partir de aquí sigue la estructura
-que ya habíamos cerrado:
--->
+Las perspectivas evolutivas son [reduccionistas]{.highlight}.
 
-<!-- ------------------------------------------------------- -->
-<!-- 1.1 Motivación (2-3 min) -->
-<!-- ------------------------------------------------------- -->
+Determinismo biológico
+
+---
 
 ## Un mundo que retrocede
 
-<!--
-Contexto actual: giro a la derecha, redes sociales, manósfera, culto a la
-testosterona/masculinidad. Ideal: 1-2 imágenes fuertes (portadas de prensa,
-capturas, no memes gratuitos) más que texto.
--->
+::: {.columns}
 
-## La grieta
+::: {.column width="42.5%"}
+![](img/charla/aumento_racismo.png)
 
-<!--
-Tesis central:
-- La base evolutiva del comportamiento humano es innegable.
-- Eso ha abierto una grieta con la psicología y otras ciencias sociales:
-  se asume que lo evolutivo es sinónimo de discriminatorio/reduccionista.
-- Postura: la crítica está justificada (el campo sí ha caído en esto),
-  pero la buena ciencia evolutiva es también la herramienta para combatirlo.
--->
+::: {.center-text}
+**Racismo**
+:::
+:::
 
-<!-- ------------------------------------------------------- -->
-<!-- 1.2 Puentes entre niveles de explicación + falacia      -->
-<!--     naturalista (5-6 min)                               -->
-<!-- ------------------------------------------------------- -->
+::: {.column width="57.5%"}
+![](img/charla/voto_mujer.png)
 
-## ¿Por qué los hombres son, en promedio, más propensos a la violencia física?
+::: {.center-text}
+**Retroceso de derechos**
+:::
+:::
 
-<!-- Diapositiva de planteamiento, sin responder aún. Imagen/ilustración simple. -->
+:::
 
-## Dos explicaciones, dos niveles
+::: {.credit}
+Fuentes: [news.un.org (2025)](https://news.un.org/es/story/2025/11/1540765) · [elpais.com (2025)](https://elpais.com/videos/2025-11-18/repeal-the-19th-la-campana-ultra-en-ee-uu-que-pide-en-redes-sociales-que-las-mujeres-no-puedan-votar.html)
+:::
+
+---
+
+## La psicología evolutiva en el centro {auto-animate="true"}
+
+::: {.columns}
+
+::: {.column width="33.3%"}
+![](img/charla/evopsych_epstein1.png){.fragment .emphasize-image}
+:::
+
+::: {.column width="33.3%"}
+![](img/charla/evopsych_epstein2.png){.fragment .emphasize-image}
+:::
+
+::: {.column width="33.3%"}
+![](img/charla/evopsych_epstein3.png){.fragment .emphasize-image}
+:::
+
+:::
+
+::: {.credit}
+Fuentes: Wilson, New Lines magazine [(2026)](https://newlinesmag.com/argument/the-academic-justification-for-male-supremacy/) · Walling, The Outline [(2019)](https://theoutline.com/post/7956/jeffrey-epstein-evolutionary-psychology) · @garistoEpsteinFilesReveal2026
+:::
+
+---
+
+## La psicología evolutiva en el centro {auto-animate="true"}
+
+::::{.columns}
+
+:::{.column width="70%"}
+![](img/charla/BG.png)
+:::
+
+:::{.column width="30%"}
+> [**Cómo los *incels* distorsionaron mi investigación** <br> La “manosfera” afirma tener legitimidad científica para su peligrosa ideología. Mi campo no ha hecho lo suficiente para defender nuestro trabajo de su uso indebido.]{style="font-size: 50%;"}
+:::
+
+::::
+
+::: {.credit}
+Conroy-Beam, [Boston Globe, 2024](https://www.bostonglobe.com/2024/05/16/opinion/evolutionary-psychology-incel-manosphere/)
+:::
+
+---
+
+## La psicología evolutiva en el centro {auto-animate="true"}
+
+::::{.columns}
+
+:::{.column width="60%"}
+![](img/charla/bachaud_2025.png){fig-align="center"}
+:::
+
+:::{.column width="40%"}
+> La manósfera no solo usa la psicología evolutiva: crea sus propias
+> hipótesis evolutivas no contrastadas ("relatos *ad hoc*") sobre
+> hombres, mujeres y sociedad, en un fenómeno de razonamiento
+> evolutivo hecho por personas no expertas.
+:::
+
+::::
+
+::: {.credit}
+@bachaudHundredTwoJustso2025
+:::
+
+---
+
+## La grieta {auto-animate="true"}
+
+![](img/charla/grieta.svg){fig-align="center"}
+
+---
+
+## La grieta {auto-animate="true"}
+
+<span style="font-size:4rem; font-weight:700; color:#F08C00;">Es una idea falaz</span>
+
+---
+
+## ¿Por qué los hombres son, en promedio, más propensos a la violencia física? {auto-animate="true"}
+
+::: {.center-text}
+<br>
+<span style="font-size:8rem; font-weight:700; color:#F08C00;">90%</span>
+
+<span style="font-size:1.1rem;">de los sospechosos de homicidio a nivel global son hombres</span>
+:::
+
+::: {.credit}
+UNODC, Global Study on Homicide [(2023)](https://www.unodc.org/unodc/en/data-and-analysis/global-study-on-homicide.html)
+:::
+
+---
+
+## Dos explicaciones, dos niveles {auto-animate="true"}
+
+::: {.columns}
+
+::: {.column width="50%"}
+::: {.level-card .social .fragment}
+::: {.level-title}
+Explicación social
+:::
+::: {.level-subtitle}
+Nivel próximo
+:::
+::: {.level-tags}
+<span>Socialización</span>
+<span>Normas de masculinidad</span>
+<span>Refuerzo cultural</span>
+:::
+:::
+:::
+
+::: {.column width="50%"}
+::: {.level-card .evo .fragment}
+::: {.level-title}
+Explicación evolutiva
+:::
+::: {.level-subtitle}
+Nivel último
+:::
+::: {.level-tags}
+<span>Competencia por estatus</span>
+<span>Historia evolutiva</span>
+<span>Riesgo reproductivo</span>
+:::
+:::
+:::
+
+:::
+
+::: {.level-connector .fragment}
+Ambas pueden ser ciertas **al mismo tiempo**: responden preguntas distintas
+:::
+
+---
+
+## Naturaleza vs. crianza: falso dilema
+
+::: {.diagram-wrap}
+<svg viewBox="0 0 500 140" width="100%" style="max-width:500px;">
+<defs>
+<linearGradient id="natnur" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#333333"/>
+<stop offset="49%" stop-color="#333333"/>
+<stop offset="49%" stop-color="#F08C00"/>
+<stop offset="100%" stop-color="#F08C00"/>
+</linearGradient>
+</defs>
+<rect x="20" y="50" width="460" height="30" rx="15" fill="url(#natnur)"/>
+<line x1="245" y1="35" x2="245" y2="95" stroke="#262420" stroke-width="3"/>
+<text x="20" y="30" font-size="16" font-weight="700" fill="#333333">Genes</text>
+<text x="480" y="30" font-size="16" font-weight="700" fill="#F08C00" text-anchor="end">Ambiente</text>
+<text x="245" y="115" font-size="14" text-anchor="middle" fill="#262420">49% / 51%</text>
+</svg>
+:::
+
+::: {.fragment}
+::: {.insight-card}
+Ningún rasgo conductual es 100% genes ni 100% ambiente:
+la heredabilidad promedio es del 49%
+:::
+:::
+
+::: {.credit}
+@polderman2015 · @turkheimer2000
+:::
+
+---
+
+## Error 1: Exclusión {auto-animate="true"}
+
+::: {.columns}
+
+::: {.column width="40%"}
+::: {.center-text}
+**Correcto**
+:::
+
+::: {.diagram-wrap}
+<svg viewBox="0 0 320 220" width="100%" style="max-width:340px;">
+<circle cx="115" cy="110" r="90" fill="rgba(51,51,51,0.15)" stroke="#333333" stroke-width="2"/>
+<circle cx="205" cy="110" r="90" fill="rgba(240,140,0,0.15)" stroke="#F08C00" stroke-width="2"/>
+<text x="75" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="#262420">Próximo</text>
+<text x="245" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="#262420">Último</text>
+</svg>
+:::
+:::
+
+::: {.column width="60%"}
+::: {.fragment}
+::: {.center-text}
+**Error**
+:::
+
+::: {.diagram-wrap}
+<svg viewBox="0 0 430 240" width="100%" style="max-width:430px;">
+<circle cx="100" cy="120" r="90" fill="rgba(51,51,51,0.15)" stroke="#333333" stroke-width="2"/>
+<circle cx="320" cy="120" r="90" fill="rgba(240,140,0,0.15)" stroke="#F08C00" stroke-width="2"/>
+<text x="100" y="125" text-anchor="middle" font-size="18" font-weight="700" fill="#262420">Próximo</text>
+<text x="320" y="125" text-anchor="middle" font-size="18" font-weight="700" fill="#262420">Último</text>
+<line x1="197" y1="95" x2="223" y2="145" stroke="#F08C00" stroke-width="6" stroke-linecap="round"/>
+<line x1="223" y1="95" x2="197" y2="145" stroke="#F08C00" stroke-width="6" stroke-linecap="round"/>
+</svg>
+:::
+:::
+:::
+
+:::
+
+::: {.fragment}
+::: {.insight-card}
+Tratar las dos explicaciones como rivales en vez de complementarias.
+Esto  ha alejado a la psicología evolutiva de otras ciencias
+sociales.
+:::
+:::
+
+---
+
+## Error 2: Falacia naturalista {auto-animate="true"}
+
+::: {.columns}
+
+::: {.column width="45%"}
+::: {.fallacy-card .fragment}
+::: {.fallacy-label}
+Versión 1
+:::
+::: {.fallacy-equation}
+Explicar ≠ Defender
+:::
+::: {.fallacy-desc}
+Estudiar un fenómeno y explicarlo [no es justificarlo]{.highlight}
+:::
+:::
+:::
+
+::: {.column width="55%"}
+::: {.fallacy-card .fragment}
+::: {.fallacy-label}
+Versión 2
+:::
+::: {.fallacy-equation}
+Natural ≠ Deber ser
+:::
+::: {.fallacy-desc}
+Que algo tenga una explicación [no lo hace inevitable ni deseable]{.highlight}
+:::
+:::
+:::
+
+:::
+
+::: {.fragment .center-text}
+<br><br>
+<span style="font-size:5rem; font-weight:700; color:#F08C00;">Evolución ≠ Destino</span>
+:::
+
+---
+
+## Racismo {auto-animate="true"}
 
 ::: {.columns}
 ::: {.column width="50%"}
-**Explicación social (nivel próximo)**
+"*Intelligence*" research & Race "*science*"
 
-<!--
-Socialización, normas de masculinidad, refuerzo cultural de la
-dominancia, estructuras patriarcales.
--->
+**Pseudociencia** y culto al IQ
 :::
+
 ::: {.column width="50%"}
-**Explicación evolutiva (nivel último)**
-
-<!--
-Competencia por estatus/pareja en la historia evolutiva humana,
-consecuencias reproductivas de la disposición al riesgo.
--->
+![](img/charla/IQ_tab.png)
 :::
 :::
 
-Ambas pueden ser ciertas **al mismo tiempo**: responden preguntas distintas.
+::: {.credit}
+Lynn & Vanhanen (2002) · Lynn & Becker (2019)
+:::
 
-## Error 1 — Exclusión
+---
 
-<!--
-Tratar las dos explicaciones como rivales en vez de complementarias.
-Esto es lo que ha alejado a la psicología evolutiva de otras ciencias
-sociales.
--->
+## Racismo {auto-animate="true" visibility="uncounted"}
 
-## Error 2 — Falacia naturalista
+::: {.columns}
+::: {.column width="50%"}
+Rebeca Sear
 
-<!--
-Asumir que, aun siendo cierta la explicación evolutiva, eso la vuelve
-un "deber ser" inmodificable. Explicar el origen no es dictar el destino.
-La cultura puede modificar lo que la evolución hizo posible (la historia
-lo demuestra).
--->
+*Presidenta, [EHBEA](https://www.cambridge.org/core/membership/ehbea)*
+:::
 
-## Nature vs. nurture: un falso dilema
+::: {.column width="50%"}
+![](img/charla/sear.png)
+:::
+:::
 
-<!--
-Cierre del bloque con evidencia dura:
-- Heredabilidad moderada (nunca 0%, nunca 100%) en casi todo rasgo
-  conductual [@polderman2015]
-- Interacción genotipo-ambiente
-- [@turkheimer2000]
+::: {.credit}
+El resurgimiento de la eugenesia: Sear [(2021)](https://www.tandfonline.com/doi/10.1080/00324728.2021.2009013)
+:::
 
-Idea para diagrama: espectro/doble flecha genes <-> ambiente, con la
-cifra de heredabilidad agregada de Polderman et al. como dato ancla.
--->
+---
 
-<!-- ------------------------------------------------------- -->
-<!-- 1.3 Recorrido por los ámbitos de apropiación indebida    -->
-<!--     (6-8 min, rápido, casi solo evidencia + imágenes)    -->
-<!-- ------------------------------------------------------- -->
+## Racismo {auto-animate="true" visibility="uncounted"}
 
-## Racismo
+::: {.columns}
+::: {.column width="50%"}
+Algún racista de Twitter
+:::
 
-<!-- "Ciencia" de raza e IQ, resurgimiento de la eugenesia [@sear2021eugenics] -->
+::: {.column width="50%"}
+![](img/charla/sp.png)
+:::
+:::
 
-## Sexismo y culto a la masculinidad
+---
 
-<!-- Manósfera, incels, énfasis en testosterona [@archer2006; @conroybeam2024] -->
+## Racismo {auto-animate="true" visibility="uncounted"}
 
-## La "familia tradicional"
+::: {.columns}
+::: {.column width="30%"}
+Diversidad humana
+:::
 
-<!-- Mito del hombre cazador-proveedor / mujer cuidadora [@sear2021family] -->
+::: {.column width="70%"}
+![](img/charla/hum_gen.png)
+:::
+:::
+
+---
+
+## Sexismo y culto a la masculinidad {auto-animate="true"}
+
+::: {.columns}
+::: {.column width="30%"}
+Énfasis en testosterona y masculinidad
+
+**Simplificación** en la interpretación
+:::
+
+::: {.column width="70%"}
+![](img/charla/gigachad.jpg)
+:::
+:::
+
+::: {.credit}
+Archer [(2006)](https://doi.org/10.1016/j.neubiorev.2004.12.007)
+:::
+
+---
+
+## Sexismo y culto a la masculinidad {auto-animate="true" visibility="uncounted"}
+
+::: {.columns}
+::: {.column width="50%"}
+> **Cómo los *incels* distorsionaron mi investigación**
+>
+> La "manosfera" afirma tener legitimidad científica para su peligrosa ideología.
+:::
+
+::: {.column width="50%"}
+![](img/charla/BG.png)
+:::
+:::
+
+::: {.credit}
+Conroy-Beam, Boston Globe [(2024)](https://www.bostonglobe.com/2024/05/16/opinion/evolutionary-psychology-incel-manosphere/)
+:::
+
+---
+
+## La "familia tradicional" {auto-animate="true"}
+
+::: {.columns}
+::: {.column width="50%"}
+Rebeca Sear
+
+*Presidenta, [EHBEA](https://www.cambridge.org/core/membership/ehbea)*
+:::
+
+::: {.column width="50%"}
+![](img/charla/sear.png)
+:::
+:::
+
+---
+
+## La "familia tradicional" {auto-animate="true" visibility="uncounted"}
+
+::: {.columns}
+::: {.column width="50%"}
+El mito del hombre proveedor
+:::
+
+::: {.column width="50%"}
+![](img/charla/trad_fam.png)
+:::
+:::
+
+::: {.credit}
+El modelo de hombre proveedor no es la familia humana "tradicional": Sear [(2021)](https://royalsocietypublishing.org/doi/10.1098/rstb.2020.0020)
+:::
+
+---
 
 ## Sexo vs. género
 
-<!-- Constructos multidimensionales, no reducibles a lo binario -->
+::: {.columns}
+::: {.column width="50%"}
+Constructos multidimensionales, no reducibles a lo binario
+:::
 
-<!-- ------------------------------------------------------- -->
-<!-- 1.4 Contrapeso: la buena ciencia evolutiva (3-4 min)     -->
-<!-- ------------------------------------------------------- -->
+::: {.column width="50%"}
+![](img/charla/sex.jpeg)
+:::
+:::
 
-## Aportes con evidencia sólida
+::: {.credit}
+Sexo y género: constructos multidimensionales que integran factores biológicos y sociales: Cell [(2024)](https://www.cell.com/cell/issue?pii=S0092-8674(23)X0007-5)
+:::
+
+---
+
+## Aportes con evidencia sólida {auto-animate="true"}
 
 <!--
 Apego, percepción de rostros/voces/señales sociales, lenguaje,
@@ -292,7 +508,7 @@ variabilidad transcultural. Reutiliza imágenes de la charla 2025
 (img/charla/).
 -->
 
-## La integración es la que desmonta el determinismo
+## La integración es la que desmonta el determinismo {auto-animate="true"}
 
 <!-- Antropología, sociología, historia + evolución, no evolución sola -->
 
@@ -300,7 +516,7 @@ variabilidad transcultural. Reutiliza imágenes de la charla 2025
 <!-- 1.5 Cierre (1-2 min) -->
 <!-- ------------------------------------------------------- -->
 
-## El punto no es rechazar, ni tragar entero
+## El punto no es rechazar, ni tragar entero {auto-animate="true"}
 
 <!--
 Mensaje central: comprender la evolución no es justificar la
